@@ -1,11 +1,14 @@
 import React from 'react';
+import { CardProps } from './interface';
 
-function Card(){
-  let status = 'doing';
+function Card(props: CardProps){
+  
+  const { title, description, status = 'todo', color = 'blue'} = props;
+
   return (
-<div className="card animate blue">
-        <input type="text" className="card-title" placeholder="Título" />
-        <textarea className="card-description" placeholder="Descrição"></textarea>
+<div className={`card animate ${color}`}>
+        <input type="text" className="card-title" placeholder="Título" value={title} />
+        <textarea className="card-description" placeholder="Descrição" value={description}></textarea>
 
         {status === 'todo' && (
           <div className="color-options-container">

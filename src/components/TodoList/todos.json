@@ -1,0 +1,27 @@
+{
+  "todos": [{
+    "id": 1,
+    "title":"Tomar café",
+    "description":"Tomar café pra ficar fortinho",
+    "status":"doing",
+    "color": "red"
+  }, {
+    "id": 2,
+    "title":"Estudar HTML & CSS",
+    "description":"HTML é de boa mas CSS ... PQP",
+    "status":"doing",
+    "color": "yellow"
+  }, {
+    "id": 3,
+    "title":"Entregar desafio HTML e CSS",
+    "description":"Entregar desafio Star Wars",
+    "status":"done",
+    "color": "indigo"
+  }, {
+    "id": 4,
+    "title":"Comer coxinha escondida",
+    "description":"Comer coxinha moscando na mesa",
+    "status":"done",
+    "color": "cyan"
+  }]
+}
