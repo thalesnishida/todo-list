@@ -1,0 +1,166 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border: 0;
+}
+
+html,
+body {
+	background: #EEEEEE;
+}
+
+body {
+	color: #666;	
+	font-family: 'Lato', sans-serif;
+}
+
+input,
+textarea {
+	border: 0;
+	resize: none;
+	background: transparent;
+}
+
+h2 {
+  text-align: center;
+}
+
+::-webkit-input-placeholder {
+  color: rgba(255,255,255,0.5);
+}
+
+.animate {
+	transition: all 0.3s ease-in-out;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 700px;
+  margin: auto;
+  min-height: 100vh;
+  padding: 70px 15px;
+}
+
+.container2 {
+  display: flex;
+}
+
+.todo-section {
+  padding-bottom: 20px;
+}
+
+.doing-section {
+  flex: 0 0 50%;
+  padding-right: 10px;
+}
+
+.done-section {
+  flex: 0 0 50%;
+  padding-left: 10px;
+}
+.card {
+	background: #FFFFFF;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	margin: 10px 0px 10px 0px;
+	padding: 15px;
+}
+
+.card-title {
+	color: #333333;
+	font-family: 'Impact';
+	font-size: 20px;
+	padding: 6px;
+	width: 100%;
+}
+
+.card-description {
+	color: #333333;	
+	font-size: 16px;
+	padding: 6px;
+	width: 100%;
+}
+
+.color-options-container {
+  display: flex;
+  align-items: center;
+}
+
+.color-option {
+	width: 17px;
+	height: 17px;
+	border-radius: 50%;
+	margin-right: 10px;
+	padding: 0;
+}
+
+.color-option:hover {
+	border: 4px solid  rgba(255,255,255,0.4);
+}
+
+.active-color {
+	border: 4px solid  #FFFFFF;	
+}
+
+.color-options-container > .card-button {
+  margin-left: auto;
+}
+
+.card-buttons-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.card-button {
+	color: #fff;
+	font-size: 14px;
+	background: rgba(255,255,255,0.1);
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.card-button:hover,
+.card-button:active
+.card-button:focus {
+	background: rgba(0,0,0,0.1);
+}
+
+.color-option.red { background-color: #F44336 }
+.color-option.pink { background-color: #E91E63 }
+.color-option.purple { background-color: #9C27B0 }
+.color-option.deep-purple { background-color: #673AB7 }
+.color-option.indigo { background-color: #3F51B5 }
+.color-option.blue { background-color: #2196F3 }
+.color-option.light-blue { background-color: #03A9F4 }
+.color-option.cyan { background-color: #00BCD4 }
+.color-option.teal { background-color: #009688 }
+.color-option.green { background-color: #4CAF50 }
+.color-option.light-green { background-color: #8BC34A }
+.color-option.lime { background-color: #CDDC39 }
+.color-option.yellow { background-color: #FFEB3B }
+.color-option.amber { background-color: #FFC107 }
+.color-option.orange { background-color: #FF9800 }
+.color-option.deep-orange { background-color: #FF5722 }
+.color-option.brown { background-color: #795548 }
+
+.card.red { background-color: #F44336 }
+.card.pink { background-color: #E91E63 }
+.card.purple { background-color: #9C27B0 }
+.card.deep-purple { background-color: #673AB7 }
+.card.indigo { background-color: #3F51B5 }
+.card.blue { background-color: #2196F3 }
+.card.light-blue { background-color: #03A9F4 }
+.card.cyan { background-color: #00BCD4 }
+.card.teal { background-color: #009688 }
+.card.green { background-color: #4CAF50 }
+.card.light-green { background-color: #8BC34A }
+.card.lime { background-color: #CDDC39 }
+.card.yellow { background-color: #FFEB3B }
+.card.amber { background-color: #FFC107 }
+.card.orange { background-color: #FF9800 }
+.card.deep-orange { background-color: #FF5722 }
+.card.brown { background-color: #795548 } 
