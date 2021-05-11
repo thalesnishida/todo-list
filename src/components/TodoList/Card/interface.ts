@@ -26,5 +26,9 @@ export interface Todo {
     color?: TodoColors
 }
 
-export interface CardProps extends Todo {}
+export interface CardProps extends Todo {
+  onSave?: (todo: Todo) => void;
+  onDelete?: () => void;
+  onComplete?: () => void;
+}
         

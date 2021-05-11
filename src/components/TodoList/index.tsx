@@ -14,13 +14,25 @@ function TodoList(){
   const doingTodos =  todos.filter((todo) => todo.status === "doing");
   const doneTodos = todos.filter ((todo) => todo.status === "done");
   
+  function handleSave(todo: Todo){
+    console.log('handleSave', todo);
+  }
+
+  function handleDelete(){
+    console.log('handleDelete');
+  };
+
+  function handleComplete(){
+    console.log('handleComplete')
+  }
+
   return (
 
     <div className="container">
     {/* <!-- TODO SECTION --> */}
     <div className="todo-section">
       <h2>TODO</h2>
-      <Card />
+      <Card onSave={handleSave}/>
     </div>
 
     <div className="container2">
@@ -34,7 +46,9 @@ function TodoList(){
           title={todoDoing.title}
           description={todoDoing.description}
           color={todoDoing.color}
-          status={todoDoing.status}/>
+          status={todoDoing.status}
+          onDelete={handleDelete}
+          onComplete={handleComplete}/>
         })}
       
       </div>
