@@ -1,14 +1,35 @@
 import React from 'react';
-import { CardProps, Todo } from './interface';
+import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
+import { CardProps, Todo, TodoColors } from './interface';
 
+const colors: TodoColors[] = [
+  "inter",
+  "red",
+  "pink",
+  "purple",
+  "deep",
+  "indigo",
+  "blue",
+  "cyan",
+  "teal",
+  "green",
+  "light-green",
+  "lime",
+  "yellow",
+  "amber",
+  "orange",
+  "deep-orange",
+  "brown"
+]; 
 function Card(props: CardProps){
   
-  const { status = 'todo', color = 'blue', onSave, onDelete, onComplete} = props;
+  const { id, status = 'todo', color = 'blue', onSave, onDelete, onComplete} = props;
 
   const isReadOnly = status === "doing" || status === "done";
 
   const [title, setTitle] = React.useState(props.title);
   const [description, setDescription] = React.useState(props.description);
+  const [activeColor, setActiveColor] = React.useState(color);
 
   function handleTitle(event: React.ChangeEvent<HTMLInputElement>){
     setTitle(event.target.value);
@@ -20,21 +41,32 @@ function Card(props: CardProps){
     setDescription(event.target.value);
   }
 
+  function handleColorChange(color: TodoColors){
+    setActiveColor(color);
+  }
+
   function handleSave(){
     const todo: Todo = {
       id: Math.floor(Math.random() * 999),
-      title: 'Hello',
-      description: 'description',
+      title: title,
+      description: description,
       status: 'doing',
-      color:"blue"
+      color:activeColor
     }
     onSave(todo);
   }
 
- 
+ function handleDelete(){
+
+   onDelete(id);
+ }
+
+ function handleComplete(){
+   onComplete(id);
+ }
   
   return (
-<div className={`card animate ${color}`}>
+<div className={`card animate ${activeColor}`}>
         <input 
         type="text" 
         className="card-title" 
@@ -54,7 +86,17 @@ function Card(props: CardProps){
 
         {status === 'todo' && (
           <div className="color-options-container">
-          <button type="button" className="color-option animate red"></button>
+            {colors.map((color)=>{
+              return (
+            <button  key={color} className={`color-option animate ${color}
+            ${activeColor === color ? 'active-color' : ''
+          }`}
+          onClick={() => handleColorChange(color)}>
+
+          </button>
+              )
+            })}
+          {/* <button type="button" className="color-option animate red"></button>
           <button type="button" className="color-option animate pink"></button>
           <button type="button" className="color-option animate purple"></button>
           <button type="button" className="color-option animate deep-purple"></button>
@@ -69,7 +111,7 @@ function Card(props: CardProps){
           <button type="button" className="color-option animate amber"></button>
           <button type="button" className="color-option animate orange"></button>
           <button type="button" className="color-option animate deep-orange"></button>
-          <button type="button" className="color-option animate brown"></button>
+          <button type="button" className="color-option animate brown"></button> */}
           <button type="button" className="card-button animate" onClick={handleSave}>
             Salvar
           </button>
@@ -77,10 +119,10 @@ function Card(props: CardProps){
         )}
         {status === 'doing' && (
           <div className="card-buttons-container">
-          <button type="button" className="card-button animate" onClick={onDelete}>
+          <button type="button" className="card-button animate" onClick={handleDelete}>
             ✖
           </button>
-          <button type="button" className="card-button animate" onClick={onComplete}>
+          <button type="button" className="card-button animate" onClick={handleComplete}>
             ✔
           </button>
         </div>

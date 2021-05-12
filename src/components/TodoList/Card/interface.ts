@@ -1,5 +1,5 @@
 type TodoStatus = "todo" | "doing" | "done";
-type TodoColors =
+export type TodoColors =
   | "inter"
   | "red"
   | "pink"
@@ -26,9 +26,10 @@ export interface Todo {
     color?: TodoColors
 }
 
+
 export interface CardProps extends Todo {
   onSave?: (todo: Todo) => void;
-  onDelete?: () => void;
-  onComplete?: () => void;
+  onDelete?: (todoId: number) => void;
+  onComplete?: (todoId: number) => void;
 }
         

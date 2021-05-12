@@ -8,6 +8,7 @@ import Card from './Card/index';
 const allTodos = todosJSON.todos as Todo[];
 
 
+
 function TodoList(){
   const [todos, setTodo] = React.useState<Todo[]>(allTodos)
 
@@ -16,14 +17,34 @@ function TodoList(){
   
   function handleSave(todo: Todo){
     console.log('handleSave', todo);
+
+    const newtodos = [...todos, todo];
+
+    setTodo(newtodos);
   }
 
-  function handleDelete(){
+  function handleDelete(todoId: number){
     console.log('handleDelete');
+
+    const newTodo = todos.filter((todo)=> todo.id !== todoId);
+
+    setTodo(newTodo);
   };
 
-  function handleComplete(){
-    console.log('handleComplete')
+  function handleComplete(todoId: number){
+    console.log('handleComplete');
+    const selecTodo = todos.find((todo) => todo.id === todoId);
+
+    const newTodo: Todo = { ...selecTodo, status: 'done'};
+
+    const newTodos = todos.filter((todo) => todo.id !== todoId);
+
+    const newTodos2 = [
+      ...newTodos, newTodo
+    ];
+
+    setTodo(newTodos2);
+
   }
 
   return (
