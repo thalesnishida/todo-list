@@ -23,13 +23,13 @@ const colors: TodoColors[] = [
 ]; 
 function Card(props: CardProps){
   
-  const { id, status = 'todo', color = 'blue', onSave, onDelete, onComplete} = props;
+  const { id, status = 'todo', onSave, onDelete, onComplete} = props;
 
   const isReadOnly = status === "doing" || status === "done";
 
-  const [title, setTitle] = React.useState(props.title);
-  const [description, setDescription] = React.useState(props.description);
-  const [activeColor, setActiveColor] = React.useState(color);
+  const [title, setTitle] = React.useState(props.title || "");
+  const [description, setDescription] = React.useState(props.description || "");
+  const [activeColor, setActiveColor] = React.useState<TodoColors>(props.color || "blue");
 
   function handleTitle(event: React.ChangeEvent<HTMLInputElement>){
     setTitle(event.target.value);
@@ -54,6 +54,8 @@ function Card(props: CardProps){
       color:activeColor
     }
     onSave(todo);
+    setTitle("");
+    setDescription("");
   }
 
  function handleDelete(){

@@ -63,11 +63,7 @@ function TodoList(){
         {doingTodos.map((todoDoing) => {
           return <Card 
           key={todoDoing.id}
-          id={todoDoing.id}
-          title={todoDoing.title}
-          description={todoDoing.description}
-          color={todoDoing.color}
-          status={todoDoing.status}
+          {...todoDoing}
           onDelete={handleDelete}
           onComplete={handleComplete}/>
         })}
@@ -79,11 +75,8 @@ function TodoList(){
         <h2>DONE</h2>
         {doneTodos.map((doneTodo) => {
           return <Card key={doneTodo.id}
-          id={doneTodo.id}
-          title={doneTodo.title}
-          description={doneTodo.description}
-          color={doneTodo.color}
-          status={doneTodo.status}/>
+          {...doneTodo}
+          />
         })}
       </div>
     </div>
